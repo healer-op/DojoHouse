@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dojo House</title>
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/3076/3076992.png">
+        <meta name="description" content="Anime Streamer For Grandpa">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="gobal.css">
+        <style>
+            #home{
+              background-color: #000;
+          }
+          
+          video {
+              opacity: 70%;
+              object-fit: cover;
+              width: 100vw;
+              height: vh;
+              top: 0;
+              left: 0;
+            }
+            
+          </style>
+          
+          </head>
+          <style>
+            #loading{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            background: #EEEECC
+            url('https://media.giphy.com/media/VdaxpqlS9hmYVoWJSt/giphy.gif')
+             no-repeat center center;	
+            z-index: 999999;
+          }
+          </style>
+          
+            <body onload="myFunction()" >
+               <div id="loading">
+          </div>
+            <script>
+               // $(document).ready(function(){
+                  // 	$('div#loading').removeAttr('id');
+               // });
+               var preloader = document.getElementById("loading");
+               // window.addEventListener('load', function(){
+               // 	preloader.style.display = 'none';
+               // 	})
+            
+               function myFunction(){
+                  setTimeout(function(){ preloader.style.display = 'none'; }, 3000);
+               };
+            </script>
+        <center>
+            <h1 class="heading" onclick="Home()">Dojo House</h1>
+            <h6>House of Real Anime | Build for Grandpa Internet Explorer</h6>
+        </center>
+        <hr>
+        <input type="text" placeholder="Search.." name="search" id="source" /><button>Search</button>
+        <hr>
+        <center>
+            <h2 id="AnimeT">Trending Anime</h2>
+        </center>
+        <hr>
+        <div style="display: flex; flex-wrap: wrap;" id="Trending">
+        </div>
+        <center>
+            <button id="loadMore" onclick="LoadMore()">Load More</button>
+            <p id="number" style="display: none;">2</p>
+        </center>
+        <hr>
+        <center>
+            <p>Made By <a href="https://github.com/healer-op">Healer-op</a></p>
+        </center>
+        <hr>
+        <script src="scripts/index.js" type="module"></script>
+        <script src="scripts/search.js"></script>
+        <script src="scripts/gobal.js"></script>
+    </body>
+</html>

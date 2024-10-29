@@ -11,7 +11,7 @@ async function healer() {
         <div style="flex: 1; padding: 10px;">
             <center>
                 <img src="${td[i].coverImage.extraLarge}" width="150px"><br>
-                <a href="./details.html?id=${td[i].id}">${td[i].title.userPreferred}</a>
+                <a href="/DojoHouse/details.html?id=${td[i].id}">${td[i].title.userPreferred}</a>
             </center>
         </div>`;
     }).join('');

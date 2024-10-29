@@ -11,7 +11,7 @@ async function search() {
         <div style="flex: 1; padding: 10px;">
             <center>
                 <img src="${td[i].coverImage.extraLarge}" width="150px">
-                <a href="/details.html?id=${td[i].id}">${td[i].title.userPreferred}</a>
+                <a href="./details.html?id=${td[i].id}">${td[i].title.userPreferred}</a>
             </center>
         </div>`;
     }).join('');

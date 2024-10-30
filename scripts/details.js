@@ -23,7 +23,7 @@ async function healer() {
     document.getElementById("Decription").innerHTML = `<h4>Description</h4>`+ai.description
     document.getElementById("Banner").src = ai.bannerImage
     document.getElementById("Cover").src = ai.coverImage.large
-    document.getElementById("YouTube").src = `https://www.youtube.com/embed/`+ai.trailer.id
+    document.getElementById("YouTube").src = `https://www.youtube.com/embed/${ai.trailer.id}`
     
 
     let episodeInfo = await fetchDataFromServer(`episode/${animeId}`)

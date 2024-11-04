@@ -14,28 +14,69 @@ async function healer() {
         link.rel = 'icon';
         document.head.appendChild(link);
     }
-    link.href = ai.coverImage.large;
 
-    document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', ai.coverImage.large)
-
-    document.title = `Dojo House - ` + ai.title.userPreferred
-    document.getElementById("Name").innerText = ai.title.userPreferred
-    document.getElementById("Decription").innerHTML = `<h4>Description</h4>`+ai.description
-    document.getElementById("Banner").src = ai.bannerImage
-    document.getElementById("Cover").src = ai.coverImage.large
-    document.getElementById("YouTube").src = `https://www.youtube.com/embed/${ai.trailer.id}`
+    try {
+        link.href = ai.coverImage.large;
+        document.querySelectorAll('meta[property=og\\:image]')[0].setAttribute('content', ai.coverImage.large)
+    } catch (error) {
+        console.log(error)
+    }
     
 
-    let episodeInfo = await fetchDataFromServer(`episode/${animeId}`)
-    let ep = episodeInfo.episodes
-    //trending html
-    const ep_html = ep.map((d, i) => {
+    
+    try {
+        document.title = `Dojo House - ` + ai.title.userPreferred
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        document.getElementById("Name").innerText = ai.title.userPreferred
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        document.getElementById("Decription").innerHTML = `<h4>Description</h4>`+ai.description
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        document.getElementById("Banner").src = ai.bannerImage 
+    } catch (error) {
+        console.log(error)
+    }
+    try {
+        document.getElementById("Cover").src = ai.coverImage.large   
+    } catch (error) {
+        console.log(error)
+    }
+    
+
+    try {
+        document.getElementById("YouTube").src = `https://www.youtube.com/embed/${ai.trailer.id}`
+    } catch (error) {
+        console.log(error)
+    }
+    
+    let idProviders = []
+    let idProvidersName = []
+    idProviders.push(ai.id_provider.idGogo)
+    idProvidersName.push("Sub")
+    try {
+        idProviders.push(ai.id_provider.idGogoDub)
+        idProvidersName.push("Dub")
+    } catch (error) {
+        console.log(error)
+    }
+
+    const p_html = idProviders.map((d, i) => {
         return `
-        <button id="${ep[i].number}" style="flex: 1;" onClick="loadEp('${ep[i].id}','${ep[i].number}')">${ep[i].number}</button>
+        <option value="${idProviders[i]}">${idProvidersName[i]}</option>
         `;
     }).join('');
-    document.querySelector("#ep").insertAdjacentHTML("afterbegin", ep_html);
-    loadEp(`${ep[0].id}`,`${ep[0].number}`)
+    document.querySelector("#dub").insertAdjacentHTML("afterbegin", p_html);
+
+
+    loadEpList()
 }healer()
 
 
